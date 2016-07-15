@@ -396,6 +396,8 @@ public class KYDrawerController: UIViewController, UIGestureRecognizerDelegate {
                 containerViewMaxAlpha*(abs(constant)/drawerWidth)
             )
         }
+
+        delegate?.drawerController(self, willChangeState: drawerState)
         
         _drawerConstraint.constant = constant
         _containerView.backgroundColor = UIColor(
