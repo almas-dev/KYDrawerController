@@ -22,8 +22,8 @@ SOFTWARE.
 
 import UIKit
 
-@objc public protocol KYDrawerControllerDelegate {
-    optional func drawerController(drawerController: KYDrawerController, stateChanged state: KYDrawerController.DrawerState)
+public protocol KYDrawerControllerDelegate: class {
+    func drawerController(drawerController: KYDrawerController, stateChanged state: KYDrawerController.DrawerState)
 }
 
 public class KYDrawerController: UIViewController, UIGestureRecognizerDelegate {
@@ -358,7 +358,7 @@ public class KYDrawerController: UIViewController, UIGestureRecognizerDelegate {
                 self.drawerViewController?.endAppearanceTransition()
                 self.mainViewController?.endAppearanceTransition()
                 self._isAppearing = nil
-                self.delegate?.drawerController?(self, stateChanged: state)
+                self.delegate?.drawerController(self, stateChanged: state)
         }
     }
     
